@@ -229,7 +229,7 @@ if (
 							@if (config('settings.footer.powered_by_info'))
 								{{ t('Powered by') }} {!! config('settings.footer.powered_by_info') !!}
 							@else
-								{{ t('Powered by') }} <a href="https://hps.com" title="Hps">Hps</a>.
+								{{ t('Powered by') }} <a href="https://mimid.com" title="Mimid">Mimid</a>.
 							@endif
 						@endif
 					</div>
