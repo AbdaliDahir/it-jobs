@@ -13,9 +13,6 @@
     Now, you can go to your Admin Panel with link:
     <a class="text-bold" href="{{ admin_url('login') }}">{{ admin_url() }}</a>.
     Visit your website: <a class="text-bold" href="{{ url('/') }}" target="_blank">{{ url('/') }}</a>
-    <br><br>
-    If you facing any issue, please visit our <a class="text-bold" href="http://support.bedigit.com" target="_blank">Help Center</a>.
-    <br><br>
     <div class="clearfix"></div>
     <br />
 

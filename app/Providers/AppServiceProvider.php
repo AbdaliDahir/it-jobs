@@ -1,17 +1,7 @@
 <?php
-/**
- * JobClass - Job Board Web Application
- * Copyright (c) BedigitCom. All Rights Reserved
- *
- * Website: https://bedigit.com
- *
- * LICENSE
- * -------
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license and with the inclusion
- * of the above copyright notice. If you Purchased from CodeCanyon,
- * Please read the full License from here - http://codecanyon.net/licenses/standard
- */
+/** 
+ * it-jobSight. 
+**/
 
 namespace App\Providers;
 
@@ -105,8 +95,8 @@ class AppServiceProvider extends ServiceProvider
 		} catch (\Exception $e) {
 			$message = ($e->getMessage() != '') ? $e->getMessage() : 'Error with the PHP symlink() function';
 			
-			$docSymlink = 'http://support.bedigit.com/help-center/articles/71/images-dont-appear-in-my-website';
-			$docDirExists = 'https://support.bedigit.com/help-center/articles/1/10/80/symlink-file-exists-or-no-such-file-or-directory';
+			$docSymlink = 'google.com';
+			$docDirExists = 'google.com';
 			if (
 				Str::contains($message, 'File exists')
 				|| Str::contains($message, 'No such file or directory')

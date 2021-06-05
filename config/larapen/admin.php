@@ -1,17 +1,7 @@
 <?php
-/**
- * JobClass - Job Board Web Application
- * Copyright (c) BedigitCom. All Rights Reserved
- *
- * Website: https://bedigit.com
- *
- * LICENSE
- * -------
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license and with the inclusion
- * of the above copyright notice. If you Purchased from CodeCanyon,
- * Please read the full License from here - http://codecanyon.net/licenses/standard
- */
+/** 
+ * it-jobSight. 
+**/
 
 return [
 	
@@ -33,7 +23,7 @@ return [
      */
 	
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'JobClass',
+    'project_name' => 'itJobSight',
 
 	// Logo
 	'logo' => [
@@ -42,17 +32,17 @@ return [
 	],
 
 	// Logos Text
-    'logo_lg'   => '<b>Job</b>Class',
-    'logo_mini' => '<b>JBC</b>',
+    'logo_lg'   => '<b>IT</b>JobSight',
+    'logo_mini' => '<b>ITJS</b>',
 
 	// Auth Background Image
 	'login_bg_image' => 'app/default/backend/login_bg_image.jpg',
 	
     // Developer or company name. Shown in footer.
-    'developer_name' => 'BedigitCom',
+    'developer_name' => 'Mimid',
 	
     // Developer website. Link in footer.
-    'developer_link' => 'https://bedigit.com',
+    'developer_link' => 'https://mimid.com',
 	
     // Show powered by Laravel in the footer?
     'show_powered_by' => true,

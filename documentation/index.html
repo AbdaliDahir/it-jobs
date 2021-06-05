@@ -147,8 +147,6 @@
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="changelog.html">Changelog</a></li>
-					<li><a href="https://support.bedigit.com/help-center">Help Center</a></li>
-					<li class="hero"><a href="https://1.envato.market/Ld3mZ">Purchase</a></li>
 				</ul>
 			</div>
 			<!-- END Top navbar -->
@@ -262,9 +260,7 @@ location / {
 			
 			<h3 id="installation-localhost"><strong>Installation on localhost</strong></h3>
 			<ul>
-				<li>You have to create a local virtual host by using a domain name (eg. <code>http://mysite.localhost</code>) instead of localhost (<code>http://localhost/mysite</code>).<br>
-					For more information, please see this article: <a href="https://bedigit.com/blog/using-a-domain-name-instead-of-localhost-with-xampp-wamp-or-mamp/" target="_blank">Using
-						a domain name instead of localhost with XAMPP, WAMP or MAMP</a>.
+				<li>You have to create a local virtual host by using a domain name (eg. <code>http://mysite.localhost</code>) instead of localhost (<code>http://localhost/mysite</code>).
 				</li>
 				<li>Restart your server.</li>
 				<li>Create a MySQL database, add user to it with full permissions.</li>
@@ -293,41 +289,6 @@ location / {
 			</div>
 			
 			<br>
-			
-			<ol>
-				<li>Download the latest version from <a href="https://codecanyon.net/downloads" target="_blank" rel="noopener">CodeCanyon</a>.</li>
-				<li>
-					Copy the <code>.zip</code> file you have downloaded to the root of your server (same place where files were uploaded during
-					<a href="https://support.bedigit.com/help-center/articles/2/5/3/installing-jobclass#uploading-files" target="_blank" rel="noopener">installation</a>).
-				</li>
-				<li>
-					Extract the <code>.zip</code> file (you have uploaded) into the root directory and <strong>overwrite</strong> old files.
-				</li>
-				<li>(If you have installed any plugins) Update them to their latest version.</li>
-				<li>Visit the URL <code>http://yoursite.com/upgrade</code> and click <code>Upgrade Now</code> button (Make sure you are logged in as admin).</li>
-				<li>Once update is completed you will be redirected back to homepage.</li>
-			</ol>
-			
-			<br>
-			
-			<div class="alert alert-success" role="alert">
-				<strong>Note:</strong><br>
-				No users, data, uploads or settings will be lost on your site when applying updates.
-			</div>
-			<div class="alert alert-warning" role="alert">
-				<strong>Important:</strong><br>
-				If your server or hosting provider uses some kind of file caching (supercacher, opcache, cloudflare cache etc) you will need to clear that cache after updating, otherwise some changes from the update might not work properly.
-			</div>
-			<div class="alert alert-info" role="alert">
-				<strong>If you receive an error related to the Purchase Code, you have to:</strong>
-				<ul>
-					<li><a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-" target="_blank">Find Your Purchase Code</a></li>
-					<li>Add a new entry for your purchase code in the <code>/.env</code> file, like this: <code>PURCHASE_CODE=yourpurchasecode</code> or Log in to your <strong>Admin
-						panel</strong> -&gt; <strong>Settings</strong> -&gt; <strong>General</strong> -&gt; <strong>Application</strong> -&gt; <strong>Purchase Code</strong> and Edit
-						the line to add your Purchase Code
-					</li>
-				</ul>
-			</div>
 			
 			<h3>Upgrade Notes</h3>
 			<div class="callout callout-danger" role="alert">
@@ -972,9 +933,6 @@ RECAPTCHA_SECRET_KEY=your-recaptcha-secret_key
 				Countries -&gt; "Admin. Division x" or "Cities") by adding new data (respecting the Geonames data format) or by modifying existing data or by deleting them.</p>
 			<p>From v2.0+ you have to update the countries locations database from your Admin panel -&gt; Settings -&gt; International -&gt; Countries (see the screenshot
 				below)</p>
-			<p><a href="https://bedigit.com/uploads/2017/02/country-locations-database.png"><img class="text-center center-block"
-																								 src="https://bedigit.com/uploads/2017/02/country-locations-database-1024x304.png" alt=""
-																								 width="700" height="208"/></a></p>
 			<p>The script does not support certain countries (Kosovo, some islands, etc.) automatically because the data in these countries are not reliable. And you will need to add the
 				missing (or incorrect) data manually from your admin panel.</p>
 			

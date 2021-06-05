@@ -1,17 +1,7 @@
 <?php
-/**
- * JobClass - Job Board Web Application
- * Copyright (c) BedigitCom. All Rights Reserved
- *
- * Website: https://bedigit.com
- *
- * LICENSE
- * -------
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license and with the inclusion
- * of the above copyright notice. If you Purchased from CodeCanyon,
- * Please read the full License from here - http://codecanyon.net/licenses/standard
- */
+/** 
+ * it-jobSight. 
+**/
 
 return [
 	
@@ -29,7 +19,7 @@ return [
 	 |-----------------------------------------------------------------------------------------------
 	 |
 	 */
-    'purchaseCodeCheckerUrl' => 'http://api.bedigit.com/envato.php?purchase_code=',
+    'purchaseCodeCheckerUrl' => 'XXX',
 	
 	/*
      |-----------------------------------------------------------------------------------------------
@@ -46,10 +36,10 @@ return [
      |
      */
 	'demo' => [
-		'domain' => 'bedigit.com',
+		'domain' => 'it-jobsight.com',
 		'hosts'  => [
-			'demo.bedigit.com',
-			'jobclass.bedigit.com',
+			'demo.it-jobsight.com',
+			'it-jobsight.com',
 		],
 	],
 
@@ -263,7 +253,6 @@ return [
      | Date & Datetime Format
 	 |-----------------------------------------------------------------------------------------------
      | Accepted formats:
-     | - ISO Format: https://bedigit.com/blog/date-iso-format-pattern/
      | - PHP-specific dates formats
      |     |- DateTimeInterface::format():https://www.php.net/manual/en/datetime.format.php
      |     |- strftime(): https://www.php.net/manual/en/function.strftime.php

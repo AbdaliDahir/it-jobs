@@ -1,9 +1,7 @@
 <?php
-/**
- * Laravel reCAPTCHA
- * Author: Bedigit
- * Web: www.bedigit.com
- */
+/** 
+ * it-jobSight. 
+**/
 
 /*
  * To configure correctly please visit https://developers.google.com/recaptcha/docs/start

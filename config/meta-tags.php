@@ -54,8 +54,8 @@ return array(
     
     'twitter' => [
         'card' => 'summary',
-        'creator' => '@BedigitCom',
-        'site' => '@BedigitCom'
+        'creator' => '@test',
+        'site' => '@test'
     ],
     
     /*
