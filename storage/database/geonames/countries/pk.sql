@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.32, for osx10.12 (x86_64)
 --
--- Host: 127.0.0.1    Database: laraclassified
+-- Host: 127.0.0.1    Database: it-jobSight
 -- ------------------------------------------------------
 -- Server version	5.7.32
 

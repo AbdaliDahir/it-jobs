@@ -1,11 +1,11 @@
 {
-	"name": "bedigit/jobclass",
+	"name": "mimid/itjobsight",
 	"type": "project",
 	"description": "Job Board Web Application.",
 	"keywords": [
 		"jobs",
 		"classified",
-		"cms",
+		"belgium",
 		"laravel",
 		"php"
 	],

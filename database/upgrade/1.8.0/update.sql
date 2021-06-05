@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jobclass`
+-- Database: `It-JobSight`
 --
 
 ALTER TABLE `<<prefix>>languages` ADD `russian_pluralization` TINYINT(1) UNSIGNED NULL DEFAULT '0' AFTER `script`;

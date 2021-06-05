@@ -5,7 +5,7 @@
 @section('content')
 
     <h3 class="title-3 text-success">
-        <i class="icon-check"></i> Congratulations, you've successfully installed JobClass (Job Board Web Application)
+        <i class="icon-check"></i> Congratulations, you've successfully installed It-JobSight (Job Board Web Application)
     </h3>
 
     Remember that all your configurations were saved in <strong class="text-bold">[APP_ROOT]/.env</strong> file. You can change it when needed.

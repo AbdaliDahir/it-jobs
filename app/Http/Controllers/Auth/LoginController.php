@@ -62,7 +62,7 @@ class LoginController extends FrontController
 	}
 	
 	// -------------------------------------------------------
-	// Laravel overwrites for loading JobClass views
+	// Laravel overwrites for loading It-JobSight views
 	// -------------------------------------------------------
 	
 	/**

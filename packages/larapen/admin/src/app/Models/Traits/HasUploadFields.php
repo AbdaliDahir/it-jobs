@@ -63,7 +63,7 @@ trait HasUploadFields
 	
 	/**
 	 * Customized - Handle file upload and DB storage for a file
-	 * NOTE: Used in JobClass
+	 * NOTE: Used in It-JobSight
 	 *
 	 * @param $value
 	 * @param $field_name

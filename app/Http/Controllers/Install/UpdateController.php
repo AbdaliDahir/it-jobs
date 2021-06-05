@@ -78,7 +78,7 @@ class UpdateController extends Controller
 				$this->fixAdminUserPermissions();
 			}
 			
-			flash("You website is up-to-date! JobClass v" . $lastVersion . ' is currently the newest version available.')->info();
+			flash("You website is up-to-date! It-JobSight v" . $lastVersion . ' is currently the newest version available.')->info();
 			
 			return redirect('/');
 		}

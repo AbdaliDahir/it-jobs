@@ -41,7 +41,7 @@ return array(
      */
     
     'open_graph' => [
-        'site_name' => 'JobClass',
+        'site_name' => 'It-JobSight',
         'type' => 'website'
     ],
     

@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jobclass`
+-- Database: `It-JobSight`
 --
 
 ALTER TABLE `<<prefix>>time_zones` DROP INDEX country_code;

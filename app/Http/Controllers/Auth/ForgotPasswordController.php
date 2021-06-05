@@ -31,7 +31,7 @@ class ForgotPasswordController extends FrontController
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading LaraClassified views
+    // Laravel overwrites for loading It-JobSight views
     // -------------------------------------------------------
 
     /**

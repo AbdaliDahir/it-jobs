@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jobclass`
+-- Database: `It-JobSight`
 --
 
 ALTER TABLE `<<prefix>>cities` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT;

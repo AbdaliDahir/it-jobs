@@ -94,12 +94,6 @@ class InstallationChecker
 	}
 	
 	/**
-	 * Check Purchase Code
-	 * ===================
-	 * Checking your purchase code. If you do not have one, please follow this link:
-	 * https://codecanyon.net/item/jobclass-geolocalized-job-portal-script/18776089
-	 * to acquire a valid code.
-	 *
 	 * IMPORTANT: Do not change this part of the code to prevent any data losing issue.
 	 *
 	 * @param \Illuminate\Http\Request $request
@@ -125,11 +119,11 @@ class InstallationChecker
 					|| $purchaseCode != config('settings.app.purchase_code')
 				) {
 					$data = '
-                    {
-                        "valid":"true",
-                        "message":"nulled",
-                        "license_code":"nulled"
-                    }';
+						{
+							"valid":"true",
+							"message":"nulled",
+							"license_code":"nulled"
+						}';
 					
 					// Check & Get cURL error by checking if 'data' is a valid json
 					if (!isValidJson($data)) {

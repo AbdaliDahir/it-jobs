@@ -45,7 +45,7 @@ class Country
 	public static $cookieExpiration = 3600;
 	
 	// Maxmind Support URL
-	private static $maxmindSupportUrl = 'http://support.bedigit.com/help-center/articles/14/enable-the-geo-location';
+	private static $maxmindSupportUrl = 'http://support.it-jobsight.com';
 	
 	
 	public function __construct()

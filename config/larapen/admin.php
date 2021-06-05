@@ -42,7 +42,7 @@ return [
     'developer_name' => 'Mimid',
 	
     // Developer website. Link in footer.
-    'developer_link' => 'https://mimid.com',
+    'developer_link' => 'https://it-jobsight.com',
 	
     // Show powered by Laravel in the footer?
     'show_powered_by' => true,

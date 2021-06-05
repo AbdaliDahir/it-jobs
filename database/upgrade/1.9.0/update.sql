@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jobclass`
+-- Database: `It-JobSight`
 --
 
 ALTER TABLE `<<prefix>>pages` CHANGE `type` `type` ENUM('standard','terms','privacy','tips') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL;

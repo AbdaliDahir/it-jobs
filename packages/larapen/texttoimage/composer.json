@@ -1,11 +1,11 @@
 {
-  "name": "jobclass/laravel-text-to-image",
+  "name": "itjobsight/laravel-text-to-image",
   "description": "Convert your formatted texts in any very pretty pictures.",
   "license": "MIT",
   "authors": [
 	{
-	  "name": "Mimid",
-	  "email": "contact@mimid.com"
+	  "name": "JobSight",
+	  "email": "contact@it-job-sight.com"
 	}
   ],
   "minimum-stability": "stable",

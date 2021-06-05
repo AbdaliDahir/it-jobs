@@ -17,14 +17,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jobclass`
+-- Database: `It-JobSight`
 --
 
 DELETE FROM `<<prefix>>settings` WHERE `key`='purchase_code';
 
 INSERT INTO `<<prefix>>settings` (`key`, `name`, `value`, `description`, `field`, `parent_id`, `lft`, `rgt`, `depth`, `active`, `created_at`, `updated_at`)
 VALUES
-	('purchase_code', 'Purchase Code', '', 'JobClass Purchase Code', '{"name":"value","label":"Value","type":"text"}', 1, 6, 7, 2, 1, NULL, '2016-11-10 19:29:35');
+	('purchase_code', 'Purchase Code', '', 'It-JobSight Purchase Code', '{"name":"value","label":"Value","type":"text"}', 1, 6, 7, 2, 1, NULL, '2016-11-10 19:29:35');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

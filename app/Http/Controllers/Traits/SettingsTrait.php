@@ -77,7 +77,7 @@ trait SettingsTrait
 		$this->og = new OpenGraph();
 		$locale = !empty(config('lang.locale')) ? config('lang.locale') : 'en_US';
 		try {
-			$this->og->siteName(config('settings.app.app_name', 'JobClass'))->locale($locale)->type('website')->url(rawurldecode(url()->current()));
+			$this->og->siteName(config('settings.app.app_name', 'It-JobSight'))->locale($locale)->type('website')->url(rawurldecode(url()->current()));
 		} catch (\Exception $e) {};
 		view()->share('og', $this->og);
 		
