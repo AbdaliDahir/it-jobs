@@ -14,8 +14,6 @@ class AppSetting
 	public static function getValues($value, $disk)
 	{
 		if (empty($value)) {
-			
-			$value['purchase_code'] = env('PURCHASE_CODE', '');
 			$value['app_name'] = config('app.name');
 			$value['logo'] = config('larapen.core.logo');
 			$value['favicon'] = config('larapen.core.favicon');
@@ -75,9 +73,6 @@ class AppSetting
 				$value['login_bg_image'] = config('larapen.admin.login_bg_image');
 			}
 			
-			if (!isset($value['purchase_code'])) {
-				$value['purchase_code'] = env('PURCHASE_CODE', '');
-			}
 			if (!isset($value['app_name'])) {
 				$value['app_name'] = config('app.name');
 			}
@@ -200,17 +195,6 @@ class AppSetting
 		$dateFormatHint = (config('settings.app.php_specific_date_format')) ? 'php_date_format_hint' : 'iso_date_format_hint';
 		
 		$fields = [
-			[
-				'name'  => 'separator_1',
-				'type'  => 'custom_html',
-				'value' => trans('admin.app_html_brand_info'),
-			],
-			[
-				'name'  => 'purchase_code',
-				'label' => trans('admin.Purchase Code'),
-				'type'  => 'text',
-				'hint'  => trans('admin.find_my_purchase_code'),
-			],
 			[
 				'name'              => 'app_name',
 				'label'             => trans('admin.App Name'),

@@ -23,7 +23,7 @@ if (
 <footer class="main-footer">
 	<div class="footer-content">
 		<div class="container">
-			<div class="row">
+			<div class="row justify-content-between">
 				
 				@if (!config('settings.footer.hide_links'))
 					<div class="{{ $colClass1 }}">
@@ -94,115 +94,6 @@ if (
 							</ul>
 						</div>
 					</div>
-					
-					@if (
-						config('settings.other.ios_app_url') or
-						config('settings.other.android_app_url') or
-						config('settings.social_link.facebook_page_url') or
-						config('settings.social_link.twitter_url') or
-						config('settings.social_link.google_plus_url') or
-						config('settings.social_link.linkedin_url') or
-						config('settings.social_link.pinterest_url') or
-						config('settings.social_link.instagram_url')
-						)
-						<div class="{{ $colClass4 }}">
-							<div class="footer-col row">
-								<?php
-									$footerSocialClass = '';
-									$footerSocialTitleClass = '';
-								?>
-								{{-- @todo: API Plugin --}}
-								@if (config('settings.other.ios_app_url') or config('settings.other.android_app_url'))
-									<div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg">
-										<div class="mobile-app-content">
-											<h4 class="footer-title">{{ t('Mobile Apps') }}</h4>
-											<div class="row ">
-												@if (config('settings.other.ios_app_url'))
-													<div class="col-xs-12 col-sm-6">
-														<a class="app-icon" target="_blank" href="{{ config('settings.other.ios_app_url') }}">
-															<span class="hide-visually">{{ t('iOS app') }}</span>
-															<img src="{{ url('images/site/app-store-badge.svg') }}" alt="{{ t('Available on the App Store') }}">
-														</a>
-													</div>
-												@endif
-												@if (config('settings.other.android_app_url'))
-													<div class="col-xs-12 col-sm-6">
-														<a class="app-icon" target="_blank" href="{{ config('settings.other.android_app_url') }}">
-															<span class="hide-visually">{{ t('Android App') }}</span>
-															<img src="{{ url('images/site/google-play-badge.svg') }}" alt="{{ t('Available on Google Play') }}">
-														</a>
-													</div>
-												@endif
-											</div>
-										</div>
-									</div>
-									<?php
-										$footerSocialClass = 'hero-subscribe';
-										$footerSocialTitleClass = 'no-margin';
-									?>
-								@endif
-								
-								@if (
-									config('settings.social_link.facebook_page_url') or
-									config('settings.social_link.twitter_url') or
-									config('settings.social_link.google_plus_url') or
-									config('settings.social_link.linkedin_url') or
-									config('settings.social_link.pinterest_url') or
-									config('settings.social_link.instagram_url')
-									)
-									<div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg">
-										<div class="{!! $footerSocialClass !!}">
-											<h4 class="footer-title {!! $footerSocialTitleClass !!}">{{ t('Follow us on') }}</h4>
-											<ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
-												@if (config('settings.social_link.facebook_page_url'))
-													<li>
-														<a class="icon-color fb" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.facebook_page_url') }}" data-original-title="Facebook">
-															<i class="fab fa-facebook"></i>
-														</a>
-													</li>
-												@endif
-												@if (config('settings.social_link.twitter_url'))
-													<li>
-														<a class="icon-color tw" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.twitter_url') }}" data-original-title="Twitter">
-															<i class="fab fa-twitter"></i>
-														</a>
-													</li>
-												@endif
-												@if (config('settings.social_link.instagram_url'))
-													<li>
-														<a class="icon-color pin" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.instagram_url') }}" data-original-title="Instagram">
-															<i class="icon-instagram-filled"></i>
-														</a>
-													</li>
-												@endif
-												@if (config('settings.social_link.google_plus_url'))
-													<li>
-														<a class="icon-color gp" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.google_plus_url') }}" data-original-title="Google+">
-															<i class="fab fa-google-plus"></i>
-														</a>
-													</li>
-												@endif
-												@if (config('settings.social_link.linkedin_url'))
-													<li>
-														<a class="icon-color lin" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.linkedin_url') }}" data-original-title="Linkedin">
-															<i class="fab fa-linkedin"></i>
-														</a>
-													</li>
-												@endif
-												@if (config('settings.social_link.pinterest_url'))
-													<li>
-														<a class="icon-color pin" title="" data-placement="top" data-toggle="tooltip" href="{{ config('settings.social_link.pinterest_url') }}" data-original-title="Pinterest">
-															<i class="fab fa-pinterest-p"></i>
-														</a>
-													</li>
-												@endif
-											</ul>
-										</div>
-									</div>
-								@endif
-							</div>
-						</div>
-					@endif
 					
 					<div style="clear: both"></div>
 				@endif

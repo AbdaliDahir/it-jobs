@@ -8,6 +8,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Helpers\Auth\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Larapen\Admin\app\Http\Controllers\Controller;
 
 class LoginController extends Controller
@@ -79,8 +80,9 @@ class LoginController extends Controller
             'blocked'  => 0,
         ];
         
+        
         // Auth the User
-        if (auth()->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             return redirect()->intended($this->redirectTo);
         }
         
@@ -88,6 +90,7 @@ class LoginController extends Controller
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
+
         
         return redirect($this->loginPath)->withErrors(['error' => trans('auth.failed')])->withInput();
     }
