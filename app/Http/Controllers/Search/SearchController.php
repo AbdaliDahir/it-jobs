@@ -22,7 +22,6 @@ class SearchController extends BaseController
 		// Search
 		$data = (new PostQueries($this->preSearch))->fetch();
 		
-
 		// Get Titles
 		$title = $this->getTitle();
 		$this->getBreadcrumb();

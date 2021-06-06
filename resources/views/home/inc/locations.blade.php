@@ -174,7 +174,7 @@ if (isset($citiesOptions, $citiesOptions['hide_on_mobile']) and $citiesOptions['
 $hideOnMobile])  -->
 <div>
 	<div class="col-xl-12 page-content p-0">
-		<div class="inner-box">
+		<div class="inner-box py-5">
 			<!-- <div class="container"> -->
 			<div class="row align-items-center justify-content-center">
 				<!-- @if (!$map['show'])
@@ -343,7 +343,7 @@ $hideOnMobile])  -->
 											class="form-control locinput input-rel searchtag-input has-icon tooltipHere"
 											placeholder="{{ t('Where') }}" value="" title="" data-placement="bottom"
 											data-toggle="tooltip"
-											data-original-title="{{ t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name') }}">
+											data-original-title="{{ t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name') }}" />
 										@else
 										<input type="text" id="locSearch" name="location"
 											class="form-control locinput input-rel searchtag-input has-icon"
@@ -362,9 +362,15 @@ $hideOnMobile])  -->
 								<div class="row align-items-center justify-content-center">
 
 									<div class="{{ $leftClassCol }} px-lg-5 search-col text-center">
-										<button class="btn btn-primary btn-search">
-											<i class="icon-search"></i> <strong>{{ t('Find') }}</strong>
-										</button>
+										<div class="d-flex">
+											<i class="icon-location-2 icon-append"></i>
+											<input type="text" id="titleSearch" name="title"
+												class="form-control locinput input-rel searchtag-input has-icon tooltipHere"
+												placeholder="{{ t('What') }}" value="" />
+											<button class="btn btn-primary btn-search">
+												<i class="icon-search"></i> <strong>{{ t('Find') }}</strong>
+											</button>
+										</div>
 									</div>
 
 									<div class="{{ $rightClassCol }} search-col text-center">
@@ -444,8 +450,7 @@ $hideOnMobile])  -->
 			allowSpaces: false,
 			tagLimit: {{ (int)config('settings.single.tags_limit', 15) }},
 			singleFieldDelimiter: ',', 
-			afterTagRemoved: (evt, ui) => {
-				console.log(ui.tag);
+			afterTagRemoved: (evt, ui) => { 
 				setOfRegions.delete($(ui.tag).attr('id').substring(3)) ;
 				var aTag = document.getElementById($(ui.tag).attr('id').substring(3));
 				aTag.style.fill = '{{ $map['color'] }}';
