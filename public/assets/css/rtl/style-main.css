@@ -624,7 +624,9 @@ button.btn-search {
 }
 
 .search-row .btn-search {
-	border-radius: 0 !important;
+	border-radius: 5px !important;
+	border: 2px solid #8358d0;
+	min-width: 200px;
 }
 
 .intro .search-row {

@@ -196,17 +196,17 @@ $hideOnMobile])  -->
 				
 				if ($loc['show'] && $map['show']) {
 					// Display the Cities & the Map
-					$leftClassCol = 'col-lg-8 col-md-12';
+					$leftClassCol = 'col-lg-9 col-md-12';
 					$rightClassCol = 'col-lg-3 col-md-12 mt-3 mt-xl-0 mt-lg-0';
 					$ulCol = 'col-md-4 col-sm-6 col-xs-12';
 					
 					if ($loc['itemsCols'] == 2) {
-						$leftClassCol = 'col-md-6 col-sm-12';
+						$leftClassCol = 'col-md-7 col-sm-12';
 						$rightClassCol = 'col-md-5 col-sm-12';
 						$ulCol = 'col-md-6 col-sm-12';
 					}
 					if ($loc['itemsCols'] == 1) {
-						$leftClassCol = 'col-md-3 col-sm-12';
+						$leftClassCol = 'col-md-4 col-sm-12';
 						$rightClassCol = 'col-md-8 col-sm-12';
 						$ulCol = 'col-xl-12';
 					}
@@ -222,7 +222,7 @@ $hideOnMobile])  -->
 				}
 				?>
 				@if ($loc['show'])
-				<div class="{{ $leftClassCol }} page-content m-0 p-0">
+				<div class="col-10 page-content m-0 p-0">
 					@if (isset($cities))
 					<div class="relative location-content">
 
@@ -233,75 +233,81 @@ $hideOnMobile])  -->
 							{{ $sForm['title'] }}
 						</h2>
 						@endif
-						<div class="col-xl-12 tab-inner">
-							<div class="row">
-								<!--Start MOE-JOBSIGHT
-									@foreach ($cities as $key => $items)
-										<ul class="cat-list {{ $ulCol }} mb-0 mb-xl-2 mb-lg-2 mb-md-2 {{ ($cities->count() == $key+1) ? 'cat-list-border' : '' }}">
-											@foreach ($items as $k => $city)
-												<li>
-													@if ($city->id == 0)
-														<a href="#browseAdminCities" data-toggle="modal">{!! $city->name !!}</a>
-													@else
-														<a href="{{ \App\Helpers\UrlGen::city($city) }}">
-															{{ $city->name }}
-														</a>
-														@if ($loc['countCitiesPosts'])
-															&nbsp;({{ $city->posts_count ?? 0 }})
+
+						<div class="row align-items-center justify-content-center">
+							<div class="{{ $leftClassCol }} tab-inner">
+								<div class="row">
+									<!--Start MOE-JOBSIGHT
+										@foreach ($cities as $key => $items)
+											<ul class="cat-list {{ $ulCol }} mb-0 mb-xl-2 mb-lg-2 mb-md-2 {{ ($cities->count() == $key+1) ? 'cat-list-border' : '' }}">
+												@foreach ($items as $k => $city)
+													<li>
+														@if ($city->id == 0)
+															<a href="#browseAdminCities" data-toggle="modal">{!! $city->name !!}</a>
+														@else
+															<a href="{{ \App\Helpers\UrlGen::city($city) }}">
+																{{ $city->name }}
+															</a>
+															@if ($loc['countCitiesPosts'])
+																&nbsp;({{ $city->posts_count ?? 0 }})
+															@endif
 														@endif
-													@endif
-												</li>
-											@endforeach
-										</ul>
+													</li>
+												@endforeach
+											</ul>
+										@endforeach
+									END MOE-JOBSIGHT-->
+									@foreach ($cats as $key => $col)
+										@foreach ($col as $iCat) 
+											@if (isset($subCats) and $subCats->has($iCat->id))
+											<div class="col-md-3 col-sm-3 {{ (count($cats) == $key+1) ? 'last-column' : '' }}">
+												<?php $randomId = '-' . substr(uniqid(rand(), true), 5, 5); ?>
+
+												<div class="cat-list">
+													<h3 class="cat-title rounded">
+														<a href="{{ \App\Helpers\UrlGen::category($iCat) }}">
+															<i class="{{ $iCat->icon_class ?? 'icon-ok' }}"></i>
+															{{ $iCat->name }} <span class="count"></span>
+														</a>
+														@if (isset($subCats) and $subCats->has($iCat->id))
+														<span class="btn-cat-collapsed collapsed" data-toggle="collapse"
+															data-target=".cat-id-{{ $iCat->id . $randomId }}" aria-expanded="false">
+															<span class="icon-down-open-big"></span>
+														</span>
+														@endif
+													</h3>
+													<ul id="catList"
+														class="cat-collapse collapse show cat-id-{{ $iCat->id . $randomId }} long-list">
+														@if (isset($subCats) and $subCats->has($iCat->id))
+															@foreach ($subCats->get($iCat->id) as $iSubCat) 
+															<li>
+																<a id="{{$iSubCat->id. $randomId }}" class="list-group-item">
+																	{{ $iSubCat->name }}
+																</a>
+															</li>
+															@endforeach
+														@endif
+													</ul>
+												</div>
+											</div>
+											@endif
+										@endforeach
 									@endforeach
-								END MOE-JOBSIGHT-->
-
-								@foreach ($cats as $key => $col)
-								@foreach ($col as $iCat)
-								@if (isset($subCats) and $subCats->has($iCat->id))
-								<div class="col-md-3 col-sm-3 {{ (count($cats) == $key+1) ? 'last-column' : '' }}">
-									<?php $randomId = '-' . substr(uniqid(rand(), true), 5, 5); ?>
-
-									<div class="cat-list">
-										<h3 class="cat-title rounded">
-											<a href="{{ \App\Helpers\UrlGen::category($iCat) }}">
-												<i class="{{ $iCat->icon_class ?? 'icon-ok' }}"></i>
-												{{ $iCat->name }} <span class="count"></span>
-											</a>
-											@if (isset($subCats) and $subCats->has($iCat->id))
-											<span class="btn-cat-collapsed collapsed" data-toggle="collapse"
-												data-target=".cat-id-{{ $iCat->id . $randomId }}" aria-expanded="false">
-												<span class="icon-down-open-big"></span>
-											</span>
-											@endif
-										</h3>
-										<ul id="catList"
-											class="cat-collapse collapse show cat-id-{{ $iCat->id . $randomId }} long-list">
-											@if (isset($subCats) and $subCats->has($iCat->id))
-											@foreach ($subCats->get($iCat->id) as $iSubCat)
-											<li>
-												<a id="{{$iSubCat->id. $randomId }}" class="list-group-item">
-													{{ $iSubCat->name }}
-												</a>
-											</li>
-											@endforeach
-											@endif
-										</ul>
-									</div>
 								</div>
-								@endif
-								@endforeach
-								@endforeach
+							</div>
+
+							<div class="{{ $rightClassCol }}">
+								@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.locations.svgmap',
+							'home.inc.locations.svgmap'])
 							</div>
 						</div>
-
 
 						<?php $tagsError = (isset($errors) and $errors->has('tags')) ? ' is-invalid' : ''; ?>
 						<div class="search-row animated fadeInUp rounded middle">
 							<form id="search" name="search" action="{{ \App\Helpers\UrlGen::search() }}" method="GET">
 
-								<div class="row m-0">
-									<div class="col-md-4 col-sm-12 mb-1 mb-xl-0 mb-lg-0 mb-md-0 search-col relative" id="searchTagsInput">
+								<div class="row m-0 d-none">
+									<div class="col-md-4 col-sm-12 mb-1 mb-xl-0 mb-lg-0 mb-md-0 search-col relative d-none" id="searchTagsInput">
 										<i class="icon-docs icon-append"></i>
 										<input id="tags" type="text" name="q"
 											class="form-control keyword has-icon input-md{{ $tagsError }}"
@@ -329,7 +335,7 @@ $hideOnMobile])  -->
 									</div>
 								-->
 
-									<div class="col-md-4 col-sm-12 search-col relative locationicon" id="searchLocationInput">
+									<div class="col-md-4 col-sm-12 search-col relative locationicon d-none" id="searchLocationInput">
 										<i class="icon-location-2 icon-append"></i>
 										<input type="hidden" id="lSearch" name="l" value="">
 										@if ($map['show'])
@@ -350,33 +356,37 @@ $hideOnMobile])  -->
 											</div>
 										-->
 									</div>
+								</div>
+								<!-- ./END:: Row -->
 
-									<div class="col-md-3 col-sm-12 search-col">
-										<button class="btn btn-primary btn-search btn-block">
+								<div class="row align-items-center justify-content-center">
+
+									<div class="{{ $leftClassCol }} px-lg-5 search-col text-center">
+										<button class="btn btn-primary btn-search">
 											<i class="icon-search"></i> <strong>{{ t('Find') }}</strong>
 										</button>
 									</div>
 
-									<div class="col-md-1 col-sm-12 search-col">
+									<div class="{{ $rightClassCol }} search-col text-center">
 										@if ($loc['showButton'])
-										@if (!auth()->check())
-										<a class="btn btn-lg btn-add-listing"
-											href="{{ \App\Helpers\UrlGen::register() . '?type=2' }}"
-											style="text-transform: none;">
-											{{ t('Add your Resume') }} <i class="icon-attach"></i>
-										</a>
-										@else
-										@if (in_array(auth()->user()->user_type_id, [1]))
-										<a class="btn btn-lg btn-add-listing pl-4 pr-4"
-											href="{{ \App\Helpers\UrlGen::addPost() }}" style="text-transform: none;">
-											<i class="fa fa-plus-circle"></i> {{ t('Post a Job') }}
-										</a>
+											@if (!auth()->check())
+												<a class="btn btn-lg btn-add-listing"
+													href="{{ \App\Helpers\UrlGen::register() . '?type=2' }}"
+													style="text-transform: none;">
+													{{ t('Add your Resume') }} <i class="icon-attach"></i>
+												</a>
+											@else
+												@if (in_array(auth()->user()->user_type_id, [1]))
+												<a class="btn btn-lg btn-add-listing pl-4 pr-4"
+													href="{{ \App\Helpers\UrlGen::addPost() }}" style="text-transform: none;">
+													<i class="fa fa-plus-circle"></i> {{ t('Post a Job') }}
+												</a>
+												@endif
+											@endif
 										@endif
-										@endif
-									</div>
-									@endif
-
+									</div> 
 								</div>
+
 							</form>
 						</div>
 
@@ -384,9 +394,6 @@ $hideOnMobile])  -->
 					@endif
 				</div>
 				@endif
-
-				@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.locations.svgmap',
-				'home.inc.locations.svgmap'])
 			</div>
 			<!-- </div> -->
 		</div>
@@ -405,11 +412,12 @@ $hideOnMobile])  -->
 @parent
 <script src="{{ url('assets/plugins/twism/jquery.twism.js') }}"></script>
 <script>
-	/*var divJobs  = document.getElementById('searchAddCriteria');	
-	var divRegions = document.getElementById('searchAddRegCriteria');
+	/*
+		var divJobs  = document.getElementById('searchAddCriteria');	
+		var divRegions = document.getElementById('searchAddRegCriteria');
 	*/	
 	var setOfRegions = new Set();
-	var subCats = <?php echo json_encode($subCats); ?>
+	// var subCats = <?php echo json_encode($subCats); ?>
 
 	$(document).ready(function () {
 		$('#tags').tagit({
@@ -445,6 +453,7 @@ $hideOnMobile])  -->
 			},
 		});
 	});
+
 	function removeCriteria(e) {
     var aTag = document.getElementById(e.target.id.substring(1));
 		//aTag.classList.toggle("active");
@@ -496,11 +505,11 @@ $hideOnMobile])  -->
 			/*var a = document.createElement('a');
 			var linkText = document.createTextNode(e.target.text);
 			a.appendChild(linkText);
-      		a.title = e.target.text;
-	  		a.rel="nofollow"
+      a.title = e.target.text;
+	  	a.rel="nofollow"
 			a.id="a"+e.target.id;
 			a.onclick = removeCriteria;
-	  		a.classList.add("jobs-s-tag")
+	  	a.classList.add("jobs-s-tag")
 			divJobs.appendChild(a);
 			*/
 			$("#tags").tagit("createTagWithId",'tag'+e.target.id, e.target.text.trim(),null,true); 

@@ -2037,7 +2037,6 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 .search-row .search-col .form-control, .search-row button.btn-search {
 	border-radius: 0;
-	border: 0;
 	height: 48px;
 	margin-bottom: 0;
 }
@@ -2829,9 +2828,9 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 }
 
 .search-row {
-	max-width: 800px;
+	/* max-width: 800px;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: auto; */
 	margin-top: 30px;
 }
 

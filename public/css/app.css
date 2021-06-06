@@ -11656,7 +11656,6 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 .search-row .search-col .form-control, .search-row button.btn-search {
 	border-radius: 0;
-	border: 0;
 	height: 48px;
 	margin-bottom: 0;
 }
@@ -12448,9 +12447,9 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 }
 
 .search-row {
-	max-width: 800px;
+	/* max-width: 800px;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: auto; */
 	margin-top: 30px;
 }
 
@@ -20113,11 +20112,13 @@ button.btn-search {
 
 .search-row {
 	margin-top: 0;
-	max-width: 900px;
+	/* max-width: 900px; */
 }
 
 .search-row .btn-search {
-	border-radius: 0 !important;
+	border-radius: 5px !important;
+	border: 2px solid #8358d0;
+	min-width: 200px;
 }
 
 .intro .search-row {
