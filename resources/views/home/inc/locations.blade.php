@@ -220,7 +220,7 @@ $hideOnMobile])  -->
 			}
 			?>
 			@if ($loc['show'])
-			<div class="page-content-inner m-0 p-0">
+			<div class="page-content-inner mx-auto my-0 p-0">
 				@if (isset($cities))
 				<div class="relative location-content">
 
