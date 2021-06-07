@@ -27,6 +27,7 @@ return [
     'i_am_looking_for_a' => 'Je recherche ...',
     'location_city' => 'Lieu (Ville/Commune) ...',
     'What' => 'Quoi ?',
+    'Search by keyword' => 'search par mots-clés',
     'Where' => 'Où ?',
     'Select your Location' => 'Sélectionnez votre région',
     'Please select your location before' => 'Sélectionnez votre région ci-dessus',

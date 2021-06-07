@@ -27,6 +27,7 @@ return [
     'i_am_looking_for_a' => 'BEstoy buscando ...',
     'location_city' => 'Localización (Ciudad) ...',
     'What' => '¿Qué?',
+    'Search by keyword' => 'Buscar por palabra clave',
     'Where' => '¿Dónde?',
     'Select your Location' => 'Seleccione su ubicación',
     'Please select your location before' => 'Por favor seleccione su ubicación antes',

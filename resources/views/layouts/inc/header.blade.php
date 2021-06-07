@@ -89,8 +89,8 @@ if (request()->segment(1) != 'countries') {
 						@endif
 					@endif
 					<li class="nav-item">
-						<a href="{{ \App\Helpers\UrlGen::search() }}" class="nav-link">
-							<i class="icon-th-list-2 hidden-sm"></i> {{ t('Browse Jobs') }}
+						<a href="{{ \App\Helpers\UrlGen::search() }}" class="nav-link font-weight-bold h6">
+							{{ t('Browse Jobs') }}
 						</a>
 					</li>
 				</ul>

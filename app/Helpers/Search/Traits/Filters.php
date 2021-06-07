@@ -15,10 +15,11 @@ use App\Helpers\Search\Traits\Filters\LocationFilter;
 use App\Helpers\Search\Traits\Filters\PostTypeFilter;
 use App\Helpers\Search\Traits\Filters\SalaryFilter;
 use App\Helpers\Search\Traits\Filters\TagFilter;
+use App\Helpers\Search\Traits\Filters\TitleFilter;
 
 trait Filters
 {
-	use AuthorFilter, CategoryFilter, KeywordFilter, LocationFilter, TagFilter,
+	use AuthorFilter, CategoryFilter, TitleFilter, KeywordFilter, LocationFilter, TagFilter,
 		DateFilter, PostTypeFilter, SalaryFilter, DynamicFieldsFilter, CompanyFilter;
 	
 	protected function applyFilters()
@@ -39,6 +40,9 @@ trait Filters
 		// Category
 		$this->applyCategoryFilter();
 		
+		// Title 
+		$this->applyTitleFilter();
+
 		// Keyword
 		$this->applyKeywordFilter();
 		

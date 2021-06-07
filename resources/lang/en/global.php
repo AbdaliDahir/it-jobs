@@ -37,6 +37,7 @@ return [
     'i_am_looking_for_a' => 'I am looking for a ...',
     'location_city' => 'Location (City) ...',
     'What' => 'What ?',
+    'Search by keyword' => 'Search by keyword',
     'Where' => 'Where ?',
     'Select your Location' => 'Select your Location',
     'Please select your location before' => 'Please select your location before',

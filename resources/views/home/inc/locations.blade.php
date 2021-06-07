@@ -361,16 +361,16 @@ $hideOnMobile])  -->
 
 								<div class="row align-items-center justify-content-center">
 
-									<div class="{{ $leftClassCol }} px-lg-5 search-col text-center">
-										<div class="d-flex">
-											<i class="icon-location-2 icon-append"></i>
-											<input type="text" id="titleSearch" name="title"
-												class="form-control locinput input-rel searchtag-input has-icon tooltipHere"
-												placeholder="{{ t('What') }}" value="" />
+									<div class="{{ $leftClassCol }} px-lg-5 text-center">
+										<div class="input-group mr-sm-2 custem-search p-1 bg-white">
+											<div class="input-group-prepend pl-1 pr-0">
+												<div class="input-group-text"><i class="icon-search h5 p-0 m-0"></i></div>
+											</div>
+											<input type="text" id="titleSearch" name="title" class="form-control mr-md-3" placeholder="{{ t('Search by keyword') }}" value="" />
 											<button class="btn btn-primary btn-search">
-												<i class="icon-search"></i> <strong>{{ t('Find') }}</strong>
+												<strong>{{ t('Find') }}</strong>
 											</button>
-										</div>
+										</div> 
 									</div>
 
 									<div class="{{ $rightClassCol }} search-col text-center">

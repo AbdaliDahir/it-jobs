@@ -27,6 +27,7 @@ return [
     'i_am_looking_for_a' => 'انا اتطلع الى ...',
     'location_city' => 'الموقع (المدينة) ...',
     'What' => 'ماذا ؟',
+    'Search by keyword' => 'بحث باستخدام كلمة',
     'Where' => 'أين ؟',
     'Select your Location' => 'حدد موقعك',
     'Please select your location before' => 'يرجى تحديد موقعك من قبل',
