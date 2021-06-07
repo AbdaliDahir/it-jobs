@@ -4820,17 +4820,14 @@ nav.slider-nav a.next {
 	}
 }
 
-.list-filter ul li p.maxlist-more a {
+.list-filter p.maxlist-more a {
 	border-radius: 5px;
 	display: block;
 	font-size: 12px;
-	padding: 2px 20px 2px 25px;
+	padding: 2px 5px 2px 5px;
 	position: relative;
-	color: #369;
-}
-
-.list-filter .maxlist-more a {
-	padding-right: 5px;
+	color: #533b93;
+	text-decoration: underline;
 	font-weight: 500;
 }
 
@@ -7070,7 +7067,7 @@ td.items-details-td {
 }
 
 .jobs-s-tag:first-child {
-	margin-right: 0;
+	margin-right: 10px;
 }
 
 .jobs-s-tag:after {

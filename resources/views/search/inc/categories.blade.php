@@ -19,7 +19,7 @@
 				<div>
 					<ul class="list-inline mt-2">
 						@foreach ($cat->parent->children as $iSubCat)
-							<li class="list-inline-item">
+							<li class="list-inline-item mb-2">
 								@if ($iSubCat->id == $cat->id)
 									<span class="badge badge-primary">
 										{{ $iSubCat->name }}

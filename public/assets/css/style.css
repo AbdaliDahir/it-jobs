@@ -1817,7 +1817,23 @@ h6 {
 	padding: 0 20px 15px;
 	font-weight: 500;
 }
-
+/***
+** MOH:CHANGES
+****/
+.page-sidebar .list-filter { 
+	border: 2px solid #eef5fd;
+	border-radius: 4px;
+}
+.page-sidebar .list-filter h5 {
+	border-bottom: 2px solid #eef5fd;
+}
+.page-sidebar .list-filter .block-content ul.long-list {
+	max-height: 240px;
+	overflow: auto;
+}
+/****
+*** END:MOH:CHANGES
+*****/
 .title-5 {
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
 	border-bottom: 1px solid #ebebeb;
@@ -4712,7 +4728,25 @@ nav.slider-nav a.next {
 	color: #4e575d;
 	font-size: 13px;
 }
-
+.list-filter ul li a:hover {
+	transform: translateX(10px);
+	transition: transform 400ms ease-in-out;
+	color: #764fbc;
+	font-weight: 500;
+}
+.list-filter ul li a.text-cat-parent {
+	padding-bottom: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.list-filter .filter-date.filter-content input,
+.list-filter .filter-date.filter-content label,
+.list-filter .filter-content.filter-employment-type input,
+.list-filter .filter-content.filter-employment-type label
+{
+	vertical-align: middle;
+	margin-bottom: 0px;
+}
 .list-filter ul ul {
 	padding-left: 15px;
 }
@@ -4820,17 +4854,14 @@ nav.slider-nav a.next {
 	}
 }
 
-.list-filter ul li p.maxlist-more a {
+.list-filter p.maxlist-more a {
 	border-radius: 5px;
 	display: block;
 	font-size: 12px;
-	padding: 2px 25px 2px 20px;
+	padding: 2px 5px 2px 5px;
 	position: relative;
-	color: #369;
-}
-
-.list-filter .maxlist-more a {
-	padding-left: 5px;
+	color: #533b93;
+	text-decoration: underline;
 	font-weight: 500;
 }
 
@@ -7070,7 +7101,7 @@ td.items-details-td {
 }
 
 .jobs-s-tag:first-child {
-	margin-left: 0;
+	margin-left: 10px;
 }
 
 .jobs-s-tag:after {

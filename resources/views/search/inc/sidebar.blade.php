@@ -1,7 +1,7 @@
 <!-- this (.mobile-filter-sidebar) part will be position fixed in mobile version -->
 <div class="col-md-3 page-sidebar mobile-filter-sidebar pb-4">
 	<aside>
-		<div class="inner-box enable-long-words">
+		<div class="enable-long-words p-0">
 			
 			@includeFirst([config('larapen.core.customizedViewPath') . 'search.inc.sidebar.post-type', 'search.inc.sidebar.post-type'])
 			@includeFirst([config('larapen.core.customizedViewPath') . 'search.inc.sidebar.categories', 'search.inc.sidebar.categories'])

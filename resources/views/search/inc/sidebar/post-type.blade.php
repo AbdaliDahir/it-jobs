@@ -20,17 +20,17 @@ if (request()->filled('type')) {
 }
 ?>
 <!-- PostType -->
-<div class="list-filter">
-	<h5 class="list-title">
+<div class="list-filter mb-4 bg-light">
+	<h5 class="h6 p-3 text-capitalize mb-0">
 		<span class="font-weight-bold">
 			{{ t('Job Type') }}
 		</span> {!! $clearFilterBtn !!}
 	</h5>
-	<div class="filter-content filter-employment-type">
+	<div class="filter-content filter-employment-type p-3">
 		<ul id="blocPostType" class="browse-list list-unstyled">
 			@if (isset($postTypes) and $postTypes->count() > 0)
 				@foreach($postTypes as $key => $postType)
-					<li>
+					<li class="mb-1">
 						<input type="checkbox"
 							name="type[{{ $key }}]"
 							id="employment_{{ $postType->id }}"
@@ -45,7 +45,6 @@ if (request()->filled('type')) {
 		</ul>
 	</div>
 </div>
-<div style="clear:both"></div>
 
 @section('after_scripts')
 	@parent

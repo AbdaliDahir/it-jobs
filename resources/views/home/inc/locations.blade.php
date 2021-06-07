@@ -175,233 +175,229 @@ $hideOnMobile])  -->
 <div>
 	<div class="col-xl-12 page-content p-0">
 		<div class="inner-box py-5">
-			<!-- <div class="container"> -->
-			<div class="row align-items-center justify-content-center">
-				<!-- @if (!$map['show'])
-				<div class="row">
-					<div class="col-xl-12 col-sm-12">
-						<h2 class="title-3 pt-1 pr-3 pb-3 pl-3" style="white-space: nowrap;">
-							<!--Start MOE-JOBSIGHT
-							<i class="icon-location-2"></i>&nbsp;{{ t('Choose a city') }} 
-							END MOE-JOBSIGHT->
-							<i class="icon-location-2"></i>&nbsp;{{ $sForm['title'] }}
-						</h2>
-					</div>
+			<!-- @if (!$map['show'])
+			<div class="row">
+				<div class="col-xl-12 col-sm-12">
+					<h2 class="title-3 pt-1 pr-3 pb-3 pl-3" style="white-space: nowrap;">
+						<!--Start MOE-JOBSIGHT
+						<i class="icon-location-2"></i>&nbsp;{{ t('Choose a city') }} 
+						END MOE-JOBSIGHT->
+						<i class="icon-location-2"></i>&nbsp;{{ $sForm['title'] }}
+					</h2>
 				</div>
-				@endif -->
-				<?php
-				$leftClassCol = '';
-				$rightClassCol = '';
-				$ulCol = 'col-md-3 col-sm-12'; // Cities Columns
+			</div>
+			@endif -->
+			<?php
+			$leftClassCol = '';
+			$rightClassCol = '';
+			$ulCol = 'col-md-3 col-sm-12'; // Cities Columns
+			
+			if ($loc['show'] && $map['show']) {
+				// Display the Cities & the Map
+				$leftClassCol = 'col-lg-9 col-md-12';
+				$rightClassCol = 'col-lg-3 col-md-12 mt-3 mt-xl-0 mt-lg-0';
+				$ulCol = 'col-md-4 col-sm-6 col-xs-12';
 				
-				if ($loc['show'] && $map['show']) {
-					// Display the Cities & the Map
-					$leftClassCol = 'col-lg-9 col-md-12';
-					$rightClassCol = 'col-lg-3 col-md-12 mt-3 mt-xl-0 mt-lg-0';
-					$ulCol = 'col-md-4 col-sm-6 col-xs-12';
-					
-					if ($loc['itemsCols'] == 2) {
-						$leftClassCol = 'col-md-7 col-sm-12';
-						$rightClassCol = 'col-md-5 col-sm-12';
-						$ulCol = 'col-md-6 col-sm-12';
-					}
-					if ($loc['itemsCols'] == 1) {
-						$leftClassCol = 'col-md-4 col-sm-12';
-						$rightClassCol = 'col-md-8 col-sm-12';
-						$ulCol = 'col-xl-12';
-					}
-				} else {
-					if ($loc['show'] && !$map['show']) {
-						// Display the Cities & Hide the Map
-						$leftClassCol = 'col-xl-12';
-					}
-					if (!$loc['show'] && $map['show']) {
-						// Display the Map & Hide the Cities
-						$rightClassCol = 'col-xl-12';
-					}
+				if ($loc['itemsCols'] == 2) {
+					$leftClassCol = 'col-md-7 col-sm-12';
+					$rightClassCol = 'col-md-5 col-sm-12';
+					$ulCol = 'col-md-6 col-sm-12';
 				}
-				?>
-				@if ($loc['show'])
-				<div class="col-10 page-content m-0 p-0">
-					@if (isset($cities))
-					<div class="relative location-content">
+				if ($loc['itemsCols'] == 1) {
+					$leftClassCol = 'col-md-4 col-sm-12';
+					$rightClassCol = 'col-md-8 col-sm-12';
+					$ulCol = 'col-xl-12';
+				}
+			} else {
+				if ($loc['show'] && !$map['show']) {
+					// Display the Cities & Hide the Map
+					$leftClassCol = 'col-xl-12';
+				}
+				if (!$loc['show'] && $map['show']) {
+					// Display the Map & Hide the Cities
+					$rightClassCol = 'col-xl-12';
+				}
+			}
+			?>
+			@if ($loc['show'])
+			<div class="page-content-inner m-0 p-0">
+				@if (isset($cities))
+				<div class="relative location-content">
 
-						@if ($loc['show'] && $map['show'])
-						<h2 class="title-3 pt-1 pr-3 pb-3 pl-3" style="white-space: nowrap;">
-							<i class="icon-location-2"></i>&nbsp;
-							<!--START MOE-JOBSIGHT{{ t('Choose a city or region') }} END MOE-JOBSIGHT-->
-							{{ $sForm['title'] }}
-						</h2>
-						@endif
+					@if ($loc['show'] && $map['show'])
+					<h2 class="title-3 pt-1 pr-3 pb-3 pl-3" style="white-space: nowrap;">
+						<i class="icon-location-2"></i>&nbsp;
+						<!--START MOE-JOBSIGHT{{ t('Choose a city or region') }} END MOE-JOBSIGHT-->
+						{{ $sForm['title'] }}
+					</h2>
+					@endif
 
-						<div class="row align-items-center justify-content-center">
-							<div class="{{ $leftClassCol }} tab-inner">
-								<div class="row">
-									<!--Start MOE-JOBSIGHT
-										@foreach ($cities as $key => $items)
-											<ul class="cat-list {{ $ulCol }} mb-0 mb-xl-2 mb-lg-2 mb-md-2 {{ ($cities->count() == $key+1) ? 'cat-list-border' : '' }}">
-												@foreach ($items as $k => $city)
-													<li>
-														@if ($city->id == 0)
-															<a href="#browseAdminCities" data-toggle="modal">{!! $city->name !!}</a>
-														@else
-															<a href="{{ \App\Helpers\UrlGen::city($city) }}">
-																{{ $city->name }}
-															</a>
-															@if ($loc['countCitiesPosts'])
-																&nbsp;({{ $city->posts_count ?? 0 }})
-															@endif
-														@endif
-													</li>
-												@endforeach
-											</ul>
-										@endforeach
-									END MOE-JOBSIGHT-->
-									@foreach ($cats as $key => $col)
-										@foreach ($col as $iCat) 
-											@if (isset($subCats) and $subCats->has($iCat->id))
-											<div class="col-md-3 col-sm-3 {{ (count($cats) == $key+1) ? 'last-column' : '' }}">
-												<?php $randomId = '-' . substr(uniqid(rand(), true), 5, 5); ?>
-
-												<div class="cat-list">
-													<h3 class="cat-title rounded">
-														<a href="{{ \App\Helpers\UrlGen::category($iCat) }}">
-															<i class="{{ $iCat->icon_class ?? 'icon-ok' }}"></i>
-															{{ $iCat->name }} <span class="count"></span>
+					<div class="row align-items-center justify-content-center">
+						<div class="{{ $leftClassCol }} tab-inner">
+							<div class="row">
+								<!--Start MOE-JOBSIGHT
+									@foreach ($cities as $key => $items)
+										<ul class="cat-list {{ $ulCol }} mb-0 mb-xl-2 mb-lg-2 mb-md-2 {{ ($cities->count() == $key+1) ? 'cat-list-border' : '' }}">
+											@foreach ($items as $k => $city)
+												<li>
+													@if ($city->id == 0)
+														<a href="#browseAdminCities" data-toggle="modal">{!! $city->name !!}</a>
+													@else
+														<a href="{{ \App\Helpers\UrlGen::city($city) }}">
+															{{ $city->name }}
 														</a>
-														@if (isset($subCats) and $subCats->has($iCat->id))
-														<span class="btn-cat-collapsed collapsed" data-toggle="collapse"
-															data-target=".cat-id-{{ $iCat->id . $randomId }}" aria-expanded="false">
-															<span class="icon-down-open-big"></span>
-														</span>
+														@if ($loc['countCitiesPosts'])
+															&nbsp;({{ $city->posts_count ?? 0 }})
 														@endif
-													</h3>
-													<ul id="catList"
-														class="cat-collapse collapse show cat-id-{{ $iCat->id . $randomId }} long-list">
-														@if (isset($subCats) and $subCats->has($iCat->id))
-															@foreach ($subCats->get($iCat->id) as $iSubCat) 
-															<li>
-																<a id="{{$iSubCat->id. $randomId }}" class="list-group-item">
-																	{{ $iSubCat->name }}
-																</a>
-															</li>
-															@endforeach
-														@endif
-													</ul>
-												</div>
-											</div>
-											@endif
-										@endforeach
+													@endif
+												</li>
+											@endforeach
+										</ul>
 									@endforeach
-								</div>
-							</div>
+								END MOE-JOBSIGHT-->
+								@foreach ($cats as $key => $col)
+									@foreach ($col as $iCat) 
+										@if (isset($subCats) and $subCats->has($iCat->id))
+										<div class="col-md-3 col-sm-3 {{ (count($cats) == $key+1) ? 'last-column' : '' }}">
+											<?php $randomId = '-' . substr(uniqid(rand(), true), 5, 5); ?>
 
-							<div class="{{ $rightClassCol }}">
-								@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.locations.svgmap',
-							'home.inc.locations.svgmap'])
+											<div class="cat-list">
+												<h3 class="cat-title rounded">
+													<a href="{{ \App\Helpers\UrlGen::category($iCat) }}">
+														<i class="{{ $iCat->icon_class ?? 'icon-ok' }}"></i>
+														{{ $iCat->name }} <span class="count"></span>
+													</a>
+													@if (isset($subCats) and $subCats->has($iCat->id))
+													<span class="btn-cat-collapsed collapsed" data-toggle="collapse"
+														data-target=".cat-id-{{ $iCat->id . $randomId }}" aria-expanded="false">
+														<span class="icon-down-open-big"></span>
+													</span>
+													@endif
+												</h3>
+												<ul id="catList"
+													class="cat-collapse collapse show cat-id-{{ $iCat->id . $randomId }} long-list">
+													@if (isset($subCats) and $subCats->has($iCat->id))
+														@foreach ($subCats->get($iCat->id) as $iSubCat) 
+														<li>
+															<a id="{{$iSubCat->id. $randomId }}" class="list-group-item">
+																{{ $iSubCat->name }}
+															</a>
+														</li>
+														@endforeach
+													@endif
+												</ul>
+											</div>
+										</div>
+										@endif
+									@endforeach
+								@endforeach
 							</div>
 						</div>
 
-						<?php $tagsError = (isset($errors) and $errors->has('tags')) ? ' is-invalid' : ''; ?>
-						<div class="search-row animated fadeInUp rounded middle">
-							<form id="search" name="search" action="{{ \App\Helpers\UrlGen::search() }}" method="GET">
+						<div class="{{ $rightClassCol }}">
+							@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.locations.svgmap',
+						'home.inc.locations.svgmap'])
+						</div>
+					</div>
 
-								<div class="row m-0 d-none">
-									<div class="col-md-4 col-sm-12 mb-1 mb-xl-0 mb-lg-0 mb-md-0 search-col relative d-none" id="searchTagsInput">
-										<i class="icon-docs icon-append"></i>
-										<input id="tags" type="text" name="q"
-											class="form-control keyword has-icon input-md{{ $tagsError }}"
-											placeholder="{{ t('What') }}" value="{{ old('tags') }}">
-										<small id=""
-											class="form-text text-muted">{{ t('Enter the tags separated by commas') }}</small>
-										<!--
-											<div class="listing-filter hidden-xs">
-											<div id='searchAddCriteria' class="breadcrumb-list text-center-xs">
-											</div>
-										</div>
-									-->
-									</div>
-									<!-- tags 
+					<?php $tagsError = (isset($errors) and $errors->has('tags')) ? ' is-invalid' : ''; ?>
+					<div class="search-row animated fadeInUp rounded middle">
+						<form id="search" name="search" action="{{ \App\Helpers\UrlGen::search() }}" method="GET">
 
-									<div class="form-group row">
-										<label class="col-md-3 col-form-label" for="tags">{{ t('Tags') }}</label>
-										<div class="col-md-8">
-											<input id="tags" name="tags" placeholder="{{ t('Tags') }}"
-												class="form-control input-md{{ $tagsError }}" type="text"
-												value="{{ old('tags') }}">
-											<small id=""
-												class="form-text text-muted">{{ t('Enter the tags separated by commas') }}</small>
+							<div class="row m-0 d-none">
+								<div class="col-md-4 col-sm-12 mb-1 mb-xl-0 mb-lg-0 mb-md-0 search-col relative d-none" id="searchTagsInput">
+									<i class="icon-docs icon-append"></i>
+									<input id="tags" type="text" name="q"
+										class="form-control keyword has-icon input-md{{ $tagsError }}"
+										placeholder="{{ t('What') }}" value="{{ old('tags') }}">
+									<small id=""
+										class="form-text text-muted">{{ t('Enter the tags separated by commas') }}</small>
+									<!--
+										<div class="listing-filter hidden-xs">
+										<div id='searchAddCriteria' class="breadcrumb-list text-center-xs">
 										</div>
 									</div>
 								-->
+								</div>
+								<!-- tags 
 
-									<div class="col-md-4 col-sm-12 search-col relative locationicon d-none" id="searchLocationInput">
-										<i class="icon-location-2 icon-append"></i>
-										<input type="hidden" id="lSearch" name="l" value="">
-										@if ($map['show'])
-										<input type="text" id="locationSearch" name="location"
-											class="form-control locinput input-rel searchtag-input has-icon tooltipHere"
-											placeholder="{{ t('Where') }}" value="" title="" data-placement="bottom"
-											data-toggle="tooltip"
-											data-original-title="{{ t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name') }}" />
-										@else
-										<input type="text" id="locSearch" name="location"
-											class="form-control locinput input-rel searchtag-input has-icon"
-											placeholder="{{ t('Where') }}" value="">
-										@endif
-										<!--
-											<div class="listing-filter hidden-xs">
-												<div id='searchAddRegCriteria' class="breadcrumb-list text-center-xs">
-												</div>
-											</div>
-										-->
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label" for="tags">{{ t('Tags') }}</label>
+									<div class="col-md-8">
+										<input id="tags" name="tags" placeholder="{{ t('Tags') }}"
+											class="form-control input-md{{ $tagsError }}" type="text"
+											value="{{ old('tags') }}">
+										<small id=""
+											class="form-text text-muted">{{ t('Enter the tags separated by commas') }}</small>
 									</div>
 								</div>
-								<!-- ./END:: Row -->
+							-->
 
-								<div class="row align-items-center justify-content-center">
-
-									<div class="{{ $leftClassCol }} px-lg-5 text-center">
-										<div class="input-group mr-sm-2 custem-search p-1 bg-white">
-											<div class="input-group-prepend pl-1 pr-0">
-												<div class="input-group-text"><i class="icon-search h5 p-0 m-0"></i></div>
+								<div class="col-md-4 col-sm-12 search-col relative locationicon d-none" id="searchLocationInput">
+									<i class="icon-location-2 icon-append"></i>
+									<input type="hidden" id="lSearch" name="l" value="">
+									@if ($map['show'])
+									<input type="text" id="locationSearch" name="location"
+										class="form-control locinput input-rel searchtag-input has-icon tooltipHere"
+										placeholder="{{ t('Where') }}" value="" title="" data-placement="bottom"
+										data-toggle="tooltip"
+										data-original-title="{{ t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name') }}" />
+									@else
+									<input type="text" id="locSearch" name="location"
+										class="form-control locinput input-rel searchtag-input has-icon"
+										placeholder="{{ t('Where') }}" value="">
+									@endif
+									<!--
+										<div class="listing-filter hidden-xs">
+											<div id='searchAddRegCriteria' class="breadcrumb-list text-center-xs">
 											</div>
-											<input type="text" id="titleSearch" name="title" class="form-control mr-md-3" placeholder="{{ t('Search by keyword') }}" value="" />
-											<button class="btn btn-primary btn-search">
-												<strong>{{ t('Find') }}</strong>
-											</button>
-										</div> 
-									</div>
+										</div>
+									-->
+								</div>
+							</div>
+							<!-- ./END:: Row -->
 
-									<div class="{{ $rightClassCol }} search-col text-center">
-										@if ($loc['showButton'])
-											@if (!auth()->check())
-												<a class="btn btn-lg btn-add-listing"
-													href="{{ \App\Helpers\UrlGen::register() . '?type=2' }}"
-													style="text-transform: none;">
-													{{ t('Add your Resume') }} <i class="icon-attach"></i>
-												</a>
-											@else
-												@if (in_array(auth()->user()->user_type_id, [1]))
-												<a class="btn btn-lg btn-add-listing pl-4 pr-4"
-													href="{{ \App\Helpers\UrlGen::addPost() }}" style="text-transform: none;">
-													<i class="fa fa-plus-circle"></i> {{ t('Post a Job') }}
-												</a>
-												@endif
-											@endif
-										@endif
+							<div class="row align-items-center justify-content-center">
+
+								<div class="{{ $leftClassCol }} px-lg-5 text-center">
+									<div class="input-group mr-sm-2 custem-search p-1 bg-white">
+										<div class="input-group-prepend pl-1 pr-0">
+											<div class="input-group-text"><i class="icon-search h5 p-0 m-0"></i></div>
+										</div>
+										<input type="text" id="titleSearch" name="title" class="form-control mr-md-3" placeholder="{{ t('Search by keyword') }}" value="" />
+										<button class="btn btn-primary btn-search">
+											<strong>{{ t('Find') }}</strong>
+										</button>
 									</div> 
 								</div>
 
-							</form>
-						</div>
+								<div class="{{ $rightClassCol }} search-col text-center">
+									@if ($loc['showButton'])
+										@if (!auth()->check())
+											<a class="btn btn-lg btn-add-listing"
+												href="{{ \App\Helpers\UrlGen::register() . '?type=2' }}"
+												style="text-transform: none;">
+												{{ t('Add your Resume') }} <i class="icon-attach"></i>
+											</a>
+										@else
+											@if (in_array(auth()->user()->user_type_id, [1]))
+											<a class="btn btn-lg btn-add-listing pl-4 pr-4"
+												href="{{ \App\Helpers\UrlGen::addPost() }}" style="text-transform: none;">
+												<i class="fa fa-plus-circle"></i> {{ t('Post a Job') }}
+											</a>
+											@endif
+										@endif
+									@endif
+								</div> 
+							</div>
 
+						</form>
 					</div>
-					@endif
+
 				</div>
 				@endif
 			</div>
-			<!-- </div> -->
+			@endif
 		</div>
 	</div>
 </div>

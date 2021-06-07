@@ -11,7 +11,7 @@
 				speed: 1000,
 				moreText: 'View More',
 				lessText: 'View Less',
-				moreHTML: '<p class="maxlist-more"><a href="#"></a></p>', // requires class and child <a>
+				moreHTML: '<p class="maxlist-more mb-0 py-2 px-3"><a href="#"></a></p>', // requires class and child <a>
 			};
 			var options = $.extend(defaults, options);
 

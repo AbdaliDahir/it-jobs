@@ -11,39 +11,36 @@ if (
 }
 ?>
 @if (isset($cat) && !empty($cat))
-	<?php
+<?php
 	$catParentUrl = \App\Helpers\UrlGen::getCatParentUrl($cat->parent ?? null);
 	?>
 	
 	<!-- SubCategory -->
-	<div id="subCatsList">
+	<div id="subCatsList" class="list-filter mb-4 bg-light">
 		@if (isset($cat->children) && $cat->children->count() > 0)
-			
-			<div class="block-title has-arrow sidebar-header">
-				<h5 class="list-title">
+			<h5 class="h6 p-3 text-capitalize mb-0">
 				<span class="font-weight-bold">
 					@if (isset($cat->parent) && !empty($cat->parent))
 						<a href="{{ \App\Helpers\UrlGen::category($cat->parent, null, $city ?? null) }}">
-							<i class="fas fa-reply"></i> {{ $cat->parent->name }}
+							<i class="fas fa-reply pr-2"></i> {{ $cat->parent->name }}
 						</a>
 					@else
 						<a href="{{ $catParentUrl }}">
-							<i class="fas fa-reply"></i> {{ t('all_categories') }}
+							<i class="fas fa-reply pr-2"></i> {{ t('all_categories') }}
 						</a>
 					@endif
 				</span> {!! $clearFilterBtn !!}
-				</h5>
-			</div>
-			<div class="block-content list-filter categories-list">
-				<ul class="list-unstyled">
+			</h5> 
+			<div class="block-content p-0 categories-list">
+				<ul class="list-unstyled p-0">
 					<li>
-						<a href="{{ \App\Helpers\UrlGen::category($cat, null, $city ?? null) }}" title="{{ $cat->name }}">
+						<a href="{{ \App\Helpers\UrlGen::category($cat, null, $city ?? null) }}" title="{{ $cat->name }}" class="px-3 py-2">
 							<span class="title font-weight-bold">{{ $cat->name }}</span>
 							@if (config('settings.listing.count_categories_posts'))
 								<span class="count">&nbsp;({{ $countPostsByCat->get($cat->id)->total ?? 0 }})</span>
 							@endif
 						</a>
-						<ul class="list-unstyled long-list">
+						<ul class="list-unstyled long-list px-3">
 							@foreach ($cat->children as $iSubCat)
 								<li>
 									<a href="{{ \App\Helpers\UrlGen::category($iSubCat, null, $city ?? null) }}" title="{{ $iSubCat->name }}">
@@ -61,24 +58,22 @@ if (
 		
 		@else
 			
-			@if (isset($cat->parent, $cat->parent->children) && $cat->parent->children->count() > 0)
-				<div class="block-title has-arrow sidebar-header">
-					<h5 class="list-title">
-						<span class="font-weight-bold">
-							@if (isset($cat->parent->parent) && !empty($cat->parent->parent))
-								<a href="{{ \App\Helpers\UrlGen::category($cat->parent->parent, null, $city ?? null) }}">
-									<i class="fas fa-reply"></i> {{ $cat->parent->parent->name }}
-								</a>
-							@else
-								<a href="{{ $catParentUrl }}">
-									<i class="fas fa-reply"></i> {{ t('all_categories') }}
-								</a>
-							@endif
-						</span> {!! $clearFilterBtn !!}
-					</h5>
-				</div>
-				<div class="block-content list-filter categories-list">
-					<ul class="list-unstyled">
+			@if (isset($cat->parent, $cat->parent->children) && $cat->parent->children->count() > 0) 
+				<h5 class="h6 p-3 text-capitalize mb-0">
+					<span class="font-weight-bold">
+						@if (isset($cat->parent->parent) && !empty($cat->parent->parent))
+							<a href="{{ \App\Helpers\UrlGen::category($cat->parent->parent, null, $city ?? null) }}">
+								<i class="fas fa-reply pr-2"></i> {{ $cat->parent->parent->name }}
+							</a>
+						@else
+							<a href="{{ $catParentUrl }}">
+								<i class="fas fa-reply pr-2"></i> {{ t('all_categories') }}
+							</a>
+						@endif
+					</span> {!! $clearFilterBtn !!}
+				</h5> 
+				<div class="block-content p-0 categories-list">
+					<ul class="list-unstyled p-3">
 						@foreach ($cat->parent->children as $iSubCat)
 							<li>
 								@if ($iSubCat->id == $cat->id)
@@ -112,7 +107,7 @@ if (
 	</div>
 
 @else
-	
+
 	@includeFirst([config('larapen.core.customizedViewPath') . 'search.inc.sidebar.categories.root', 'search.inc.sidebar.categories.root'])
 
 @endif

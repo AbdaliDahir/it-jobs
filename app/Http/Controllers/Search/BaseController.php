@@ -106,6 +106,7 @@ class BaseController extends FrontController
 		
 		// LEFT MENU VARS
 		// Count Posts by Category
+
 		$countPostsByCat = collect();
 		if (config('settings.listing.count_categories_posts')) {
 			if (isset($this->city) && !empty($this->city) && $this->city instanceof City) {

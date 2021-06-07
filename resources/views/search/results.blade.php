@@ -142,7 +142,7 @@
 					</div>
 
 					<div class="listing-filter hidden-xs">
-						<div class="pull-left col-sm-6 col-xs-12">
+						<div class="pull-left col-sm-6 col-xs-12 pl-0">
 							<div class="breadcrumb-list text-center-xs">
 								{!! (isset($htmlTitle)) ? $htmlTitle : '' !!}
 							</div>

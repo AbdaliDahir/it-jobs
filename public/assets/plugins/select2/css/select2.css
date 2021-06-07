@@ -265,7 +265,11 @@
   color: #999; }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
-  background-color: #ddd; }
+  background-color: #764fbc;
+	color: #fff;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.16);
+}
 
 .select2-container--default .select2-results__option .select2-results__option {
   padding-left: 1em; }

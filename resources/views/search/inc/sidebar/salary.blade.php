@@ -7,13 +7,13 @@ if (request()->filled('minSalary') || request()->filled('maxSalary')) {
 }
 ?>
 <!-- Salary -->
-<div class="list-filter">
-	<h5 class="list-title">
+<div class="list-filter mb-4 bg-light">
+	<h5 class="h6 p-3 text-capitalize mb-0">
 		<span class="font-weight-bold">
 			{{ t('Salary Pay Range') }}
 		</span> {!! $clearFilterBtn !!}
 	</h5>
-	<div class="filter-salary filter-content ">
+	<div class="filter-salary filter-content p-3">
 		<form role="form" class="form-inline" action="{{ request()->url() }}" method="GET">
 			<?php $i = 0; ?>
 			@foreach(request()->except(['page', 'minSalary', 'maxSalary', '_token']) as $key => $value)

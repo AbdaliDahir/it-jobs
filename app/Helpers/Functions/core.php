@@ -3583,7 +3583,7 @@ function getFilterClearBtn($url)
 	
 	if (!empty($url)) {
 		$out .= '<a href="' . $url . '" title="' . t('Remove this filter') . '">';
-		$out .= '<i class="far fa-window-close" style="float: right; margin-top: 2px; color: #999;"></i>';
+		$out .= '<i class="far fa-window-close" style="float: right; color: #6b6b6b; font-size: 22px"></i>';
 		$out .= '</a>';
 	}
 	
