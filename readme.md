@@ -7,7 +7,6 @@
 * installer **composer** [https://getcomposer.org/](https://getcomposer.org/)
 * installer **git** [https://git-scm.com/](https://git-scm.com/)
 * installer **nodejs** [https://nodejs.org/en/](https://nodejs.org/en/) 
-* installer **yarn** [https://classic.yarnpkg.com/en/docs/install/#windows-stable](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 
 
 Download and Installation :
